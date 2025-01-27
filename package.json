@@ -1,0 +1,29 @@
+{
+  "name": "express-ts-skeleton",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.ts",
+  "scripts": {
+    "run": "ts-node app.ts",
+    "dev": "nodemon --watch 'src/**/*.ts' --exec 'ts-node app.ts' src/app.ts",
+    "build": "swc src --out-dir dist/src",
+    "build:ci": "tsc && pnpm run build",
+    "start:dev": "concurrently \"npm run build:watch\" \"nodemon --watch 'dist/**/*.js' -e js dist/src/app.js\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "@swc/cli": "^0.6.0",
+    "@swc/core": "^1.10.9",
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.10.10",
+    "concurrently": "^9.1.2",
+    "nodemon": "^3.1.9",
+    "typescript": "^5.7.3"
+  }
+}
